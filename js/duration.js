@@ -1,8 +1,10 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">!(function() {
   /** 计时起始时间，自行修改 **/
+  console.log("QaQ");
   var start = new Date("2022/01/08 21:12:53");
 
   function update() {
+    console.log("QAQ");
     var now = new Date();
     now.setTime(now.getTime()+250);
     days = (now - start) / 1000 / 60 / 60 / 24;
@@ -24,6 +26,7 @@
     }
     document.getElementById("timeDate").innerHTML = "本站陪伴您&nbsp"+dnum+"&nbsp天";
     document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";
+    console.log("Qaq");
   }
 
   update();
