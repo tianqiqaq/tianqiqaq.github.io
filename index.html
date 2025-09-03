@@ -1,0 +1,806 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#d3d7d4">
+  <meta name="author" content="Tianqi">
+  <meta name="keywords" content="天启 Blog 博客 编程">
+  
+    <meta name="description" content="Tianqi&#39;s Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="笛声春城">
+<meta property="og:url" content="https://tianqi.zyghit.cn/">
+<meta property="og:site_name" content="笛声春城">
+<meta property="og:description" content="Tianqi&#39;s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Tianqi">
+<meta property="article:tag" content="天启 Blog 博客 编程">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  <title>笛声春城</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"tianqi.zyghit.cn","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["-cutted",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>笛声春城 - Tianqi&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-book"></i>
+                文章
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/">
+                    <i class="iconfont icon-category-fill"></i>
+                    分类
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    标签
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives/">
+                    <i class="iconfont icon-archive-fill"></i>
+                    归档
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://tianqi.zyghit.cn/api/RandomBackgroundImage.php') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="谁家玉笛暗飞声，散入春风满洛城。">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/04/494cdc8912fb.html" target="_self">
+          Python 简单实现二分法求函数零点
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/12/04/494cdc8912fb.html" target="_self">
+          
+          用法引用So simple! 只需把下面的代码复制到一个 &amp;#123;cute_name&amp;#125;.py ，然后直接在你要用的地方： 12345from &amp;#123;cute_name&amp;#125; import getErf... &quot;&quot;&quot;获取数据区&quot;&quot;&quot;result &#x3D; getErf(...) 参数列表getErf 有四个形参！ g:
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-04 03:32" pubdate>
+              2022-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+            
+              <a href="/categories/%E7%BC%96%E7%A8%8B/Python/">Python</a>
+            
+              <a href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
+            
+              <a href="/categories/%E6%95%B0%E5%AD%A6/%E5%87%BD%E6%95%B0/">函数</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%BC%96%E7%A8%8B/">编程</a>
+            
+              <a href="/tags/Python/">Python</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/04/06c1f26c7b59.html" target="_self">
+          呼！捏了一把汗
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/12/04/06c1f26c7b59.html" target="_self">
+          
+          一些波折怎么说呢，之前一阵子由于中考，再加上社交方面出现了亿点点小问题，所以笛声春城竟然被我搁置了这么久！！！ QmQ ，总之是十分难受，不过好在现在她回来啦，笛声春城，对不起 QAQ 未来星辰云 不倒，我的钱包不空，笛声春城将永生！ qwq！！！
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-04 03:09" pubdate>
+              2022-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%94%A0%E5%94%A0%E5%8F%A8%E5%8F%A8/">唠唠叨叨</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%94%A0%E5%94%A0%E5%8F%A8%E5%8F%A8/">唠唠叨叨</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/03/25/e11e7b14b250.html" target="_self">
+          对于近期OpenFrp节点不稳定的声明
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/03/25/e11e7b14b250.html" target="_self">
+          
+          写在前面作为 OpenFrp 的开发者，同时是 OpenFrp Project 的一员，在个人博客转发一下该声明[1]。  《对于近期OpenFrp节点不稳定的声明》近期我们的节点受到了大量的DDOS攻击、密码爆破等攻击，OpenFrp Project成员对节点进行了维护与升级，现全面更换为公钥+私钥登录并完全离线保存。对于DDOS攻击也在积极的采取措施，若节点长期处于瘫痪状态，我们会为您更换节点
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-03-25 14:40" pubdate>
+              2022-03-25
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%94%A0%E5%94%A0%E5%8F%A8%E5%8F%A8/">唠唠叨叨</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%94%A0%E5%94%A0%E5%8F%A8%E5%8F%A8/">唠唠叨叨</a>
+            
+              <a href="/tags/OpenFrp/">OpenFrp</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/01/18/6f01c824a5d1.html" target="_self">
+          C# 编译的程序属性中两个版本号的区分
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/01/18/6f01c824a5d1.html" target="_self">
+          
+          今天给甲方写代码的时候，发现 Visual Studio 的 项目属性 里支持图形化配置的两个版本号：  程序集版本 和 文件版本  它们在 AssemblyInfo.cs中是这么实现的： 123456789101112&#x2F;&#x2F; 程序集的版本信息由下列四个值组成: &#x2F;&#x2F;&#x2F;&#x2F;      主版本&#x2F;&#x2F;      次版本&#x2F;&#x2F;      生成号&#x2F;&#x2F;      修订号&#x2F;&#x2F;&#x2F;&#x2F;可以指定所有这些值，也可以使用“生成号
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-18 22:22" pubdate>
+              2022-01-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+            
+              <a href="/categories/%E7%BC%96%E7%A8%8B/C/">C#</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%BC%96%E7%A8%8B/">编程</a>
+            
+              <a href="/tags/C/">C#</a>
+            
+              <a href="/tags/VSTO/">VSTO</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/01/09/a5a080c8a76f.html" target="_self">
+          在 Hexo 中添加脚注
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/01/09/a5a080c8a76f.html" target="_self">
+          
+          早就想搞一个脚注的插件了，一搜，果然有大佬帮 我 我们开发好了！ 官方中文文档 KChen’s Blog &gt;&gt; Github &gt;&gt; Usage您只需要安装一个插件： 1npm install hexo-reference --save  然后您就可以 npx hexo new &lt;title&gt; 一篇文章，体验效果啦： 12345678910111213基本脚注[1
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-09 21:00" pubdate>
+              2022-01-09
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+            
+              <a href="/categories/%E6%8A%80%E6%9C%AF/%E8%AE%BA%E5%9D%9B/">论坛</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Hexo/">Hexo</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/01/09/bd781dda0b8f.html" target="_self">
+          分享几个我给笛声春城写的API
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/01/09/bd781dda0b8f.html" target="_self">
+          
+          写在前面这些 API 都是给笛声春城用的，不作它用。如若您想调用，请先联系我一下，防止恶意调用。 APIs一言Usage URI: http:&#x2F;&#x2F;tianqi.wac.ink&#x2F;api&#x2F;Yiyan.php Return: JSON   Key Type Description    statu int 200为访问成功（你也不会看到非200的情况）   data dict 返回数据字典   data
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-09 15:46" pubdate>
+              2022-01-09
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+            
+              <a href="/categories/%E7%BC%96%E7%A8%8B/API/">API</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%BC%96%E7%A8%8B/">编程</a>
+            
+              <a href="/tags/API/">API</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/01/08/bc8edce10cb6.html" target="_self">
+          VSTO PowerPoint 对放映的控制
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/01/08/bc8edce10cb6.html" target="_self">
+          
+          写在前面VSTO[1] 在当前真的是个比较冷门的技术，网络上搜寻到的 VSTO 资源大多都是针对诸如 Excel 、 OutLook 之类， PowerPoint 在其中更是冷门，而关于 PowerPoint 的资源又基本都是修改 PowerPoint 文档内容的，针对放映的真是凤毛麟角。 所幸，针对 PowerPoint 放映的相关文献，质量还是相对比较高的，没有什么营销号的文章 （估计营销号也
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-08 23:28" pubdate>
+              2022-01-08
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+            
+              <a href="/categories/%E7%BC%96%E7%A8%8B/C/">C#</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%BC%96%E7%A8%8B/">编程</a>
+            
+              <a href="/tags/C/">C#</a>
+            
+              <a href="/tags/VSTO/">VSTO</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/01/08/0e5057bd2e86.html" target="_self">
+          你好，笛声春城！
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/01/08/0e5057bd2e86.html" target="_self">
+          
+          大家好！我是天启，经过了一晚上的调试，我终于拥有了人生中的第一个 Blog ——笛声春城。 话说为啥要叫笛声春城这个名字嘞？我想把我的 Blog 打造成类似于故乡一样的很亲切的地方。如此，脑中便冒出李白先生所写之句： 谁家玉笛暗飞声，散入春风满洛城。 也许是一拍脑袋的决定罢，我便提取出玉笛与春城这两个具有代表性的词语，自以为是地造了一个词：笛声春城。 Future平常可能发点随笔啥的，主要是把写程
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-08 22:16" pubdate>
+              2022-01-08
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%94%A0%E5%94%A0%E5%8F%A8%E5%8F%A8/">唠唠叨叨</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%94%A0%E5%94%A0%E5%8F%A8%E5%8F%A8/">唠唠叨叨</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <div>Copyright © 2022-2023 <a href="https://tianqi.zyghit.cn/" target="_self">Tianqi</a></div>
+<div> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Blog Powered by Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Theme by Fluid</span></a> </div>
+<div class="beian" style="font-size: 0.9rem"> <span> ✮ <a href="https://icp.gov.moe/" target="_blank" rel="nofollow noopener"> 萌ICP备 </a> ✮ <a href="https://icp.gov.moe/?keyword=20232330" target="_blank" rel="nofollow noopener"> 20232330号 </a> ✮ </span> </div>
+<div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script>!(function() { /** 计时起始时间，自行修改 **/ console.log("QaQ"); var start = new Date("2022/01/08 21:12:53");
+function update() { console.log("QAQ"); var now = new Date(); now.setTime(now.getTime()+250); days = (now - start) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); hours = (now - start) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); if(String(hnum).length === 1 ){ hnum = "0" + hnum; } minutes = (now - start) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); mnum = Math.floor(minutes); if(String(mnum).length === 1 ){ mnum = "0" + mnum; } seconds = (now - start) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); snum = Math.round(seconds); if(String(snum).length === 1 ){ snum = "0" + snum; } document.getElementById("timeDate").innerHTML = "本站陪伴您&nbsp"+dnum+"&nbsp天"; document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒"; console.log("Qaq"); }
+update(); setInterval(update, 1000); })();</script> </div> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            访问 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            访客 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        冀ICP备2023025586号
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      jQuery.ajax({
+        type: 'GET',
+        url: 'https://tianqi.zyghit.cn/api/Yiyan.php',
+        headers: {},
+        dataType: 'json',
+        success: function(result) {
+          var text;
+          if (result) {
+            var keys = 'data,message'.split(',');
+            if (result instanceof Array) {
+              result = result[0];
+            }
+            for (const k of keys) {
+              var value = result[k];
+              if (typeof value === 'string') {
+                text = value;
+                break;
+              } else if (value instanceof Object) {
+                result = value;
+              }
+            }
+          }
+          text ? typing(text) : typing(title);
+        },
+        error: function() {
+          typing(title);
+        }
+      })
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

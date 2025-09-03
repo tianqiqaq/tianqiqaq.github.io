@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>Python 简单实现二分法求函数零点</title>
+    <link href="/2022/12/04/494cdc8912fb.html"/>
+    <url>/2022/12/04/494cdc8912fb.html</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h1><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>So simple! 只需把下面的代码复制到一个 <code>&#123;cute_name&#125;.py</code> ，然后直接在你要用的地方：</p><figure class="highlight python"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> &#123;cute_name&#125; <span class="hljs-keyword">import</span> getErf<br><br><span class="hljs-meta">... </span><span class="hljs-string">&quot;&quot;&quot;获取数据区&quot;&quot;&quot;</span><br><br>result = getErf(...)<br></code></pre></td></tr></table></figure><h2 id="参数列表"><a href="#参数列表" class="headerlink" title="参数列表"></a>参数列表</h2><p><code>getErf</code> 有四个形参！</p><p><code>g: str</code> 函数表达式</p><p><code>init: list</code> 一个需要两个元素的数值列表，并且满足 <code>init[0]&lt;init[1]</code> ，这是求零点的初始区间，要求 <code>init ∈ g的定义域I</code></p><p><code>out</code> 放一个函数指针，用来输出信息，默认是不输出，可以填 <code>print</code> 就会把信息打印到控制台</p><h2 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h2><p>一个双元列表，或者是一个数字。</p><p>若是个双元列表，则是指定精确度后可能的两个零点值(范围)</p><p>若是个数字，则是经过计算后得出的精确零点值</p><h1 id="懒得写-留白"><a href="#懒得写-留白" class="headerlink" title="懒得写 留白"></a><del>懒得写</del> 留白</h1><p>细心的你在阅读完代码后会发现 <code>toDel</code> 我空着没写， <code>getErf</code> 的最后几个 <code>if</code> 也一样，这是用来舍去计算后多余的位数的。</p><p>人生需要留白，写代码也一样，大家可以试着自己完成喵~ </p><h1 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> math <span class="hljs-keyword">import</span> *<br><span class="hljs-comment">#from os import system as cmd</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">toDel</span>(<span class="hljs-params">i, j</span>):</span><br>    <span class="hljs-comment"># 将i的精确度放到j</span><br>    <span class="hljs-keyword">pass</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getMid</span>(<span class="hljs-params">i, j</span>):</span><br>    <span class="hljs-keyword">return</span> (i+j)/<span class="hljs-number">2</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getErf</span>(<span class="hljs-params">g: <span class="hljs-built_in">str</span>, init: <span class="hljs-built_in">list</span>, T: <span class="hljs-built_in">float</span>, out = <span class="hljs-keyword">lambda</span> *args, **kwargs: <span class="hljs-number">0</span></span>):</span><br>    x=init[<span class="hljs-number">0</span>]<br>    res=<span class="hljs-built_in">eval</span>(g)<br>    b=<span class="hljs-literal">True</span> <span class="hljs-keyword">if</span> res&lt;<span class="hljs-number">0</span> <span class="hljs-keyword">else</span> <span class="hljs-literal">False</span><br><br>    out(<span class="hljs-string">&quot;Loading...&quot;</span>)<br><br>    <span class="hljs-keyword">while</span> init[<span class="hljs-number">1</span>]-init[<span class="hljs-number">0</span>]&gt;T:<br>        <span class="hljs-comment">#cmd(&quot;cls&quot;)</span><br>        <br>        x = getMid(*init)<br>        res = <span class="hljs-built_in">eval</span>(g)<br>        out(<span class="hljs-string">f&quot;f(<span class="hljs-subst">&#123;x&#125;</span>)=<span class="hljs-subst">&#123;res&#125;</span>&quot;</span>)<br>        <span class="hljs-keyword">if</span> res==<span class="hljs-number">0</span>:<br>            init=x<br>            <span class="hljs-keyword">break</span><br>        <span class="hljs-keyword">elif</span> (res&lt;<span class="hljs-number">0</span>)==b:<br>            init[<span class="hljs-number">0</span>]=x<br>        <span class="hljs-keyword">else</span>:<br>            init[<span class="hljs-number">1</span>]=x<br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">type</span>(init) <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-built_in">list</span>: <span class="hljs-comment"># 应该是个数字</span><br>        <span class="hljs-keyword">pass</span><br>    <span class="hljs-keyword">elif</span> <span class="hljs-built_in">type</span>(init) <span class="hljs-keyword">is</span> <span class="hljs-built_in">list</span>:<br>        <span class="hljs-keyword">pass</span><br>    <span class="hljs-keyword">return</span> init<br>    <br>    <span class="hljs-comment">#print(x, res, b)</span><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:<br>    g = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Math Gongshi: f(x)=&quot;</span>)<br>    defaulti = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Init Collection: &quot;</span>)<br>    w, w2 = <span class="hljs-built_in">eval</span>(defaulti <span class="hljs-keyword">if</span> defaulti <span class="hljs-keyword">else</span> <span class="hljs-string">&quot;(-1000, 1000)&quot;</span>)<span class="hljs-comment">#(0,1)</span><br>    init=[w, w2]<br>    T = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Jingquedu: &quot;</span>))<br><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Result:&quot;</span>, getErf(g, init, T, <span class="hljs-built_in">print</span>))<br><br>    <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Press Enter to exit...&quot;</span>)<br><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>编程</category>
+      
+      <category>Python</category>
+      
+      <category>数学</category>
+      
+      <category>函数</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>编程</tag>
+      
+      <tag>Python</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>呼！捏了一把汗</title>
+    <link href="/2022/12/04/06c1f26c7b59.html"/>
+    <url>/2022/12/04/06c1f26c7b59.html</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="一些波折"><a href="#一些波折" class="headerlink" title="一些波折"></a>一些波折</h1><p>怎么说呢，之前一阵子由于中考，再加上社交方面出现了<del>亿点点</del>小问题，所以笛声春城<strong>竟然被我搁置了这么久</strong>！！！</p><p>QmQ ，总之是十分难受，不过好在现在她回来啦，笛声春城，对不起 QAQ</p><h1 id="未来"><a href="#未来" class="headerlink" title="未来"></a>未来</h1><p><a href="https://starxn.com/">星辰云</a> 不倒，我的钱包不空，笛声春城将永生！ qwq！！！</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>唠唠叨叨</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>唠唠叨叨</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>对于近期OpenFrp节点不稳定的声明</title>
+    <link href="/2022/03/25/e11e7b14b250.html"/>
+    <url>/2022/03/25/e11e7b14b250.html</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>作为 OpenFrp 的开发者，同时是 OpenFrp Project 的一员，在个人博客转发一下该声明<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[官方动态]https://www.bilibili.com/read/cv15827585">[1]</span></a></sup>。</p><hr><h1 id="《对于近期OpenFrp节点不稳定的声明》"><a href="#《对于近期OpenFrp节点不稳定的声明》" class="headerlink" title="《对于近期OpenFrp节点不稳定的声明》"></a>《对于近期OpenFrp节点不稳定的声明》</h1><h3 id="近期我们的节点受到了大量的DDOS攻击、密码爆破等攻击，OpenFrp-Project成员对节点进行了维护与升级，现全面更换为公钥-私钥登录并完全离线保存。对于DDOS攻击也在积极的采取措施，若节点长期处于瘫痪状态，我们会为您更换节点来保持你的服务正常运行，对此深表抱歉，决定给予在被攻击节点在当天有流量的用户10G流量包，每账户，每人，每个设备限领一份。关于为什么不采用高防服务器的问题，OpenFrp是全免费的服务，全部节点均为各大赞助商提供。"><a href="#近期我们的节点受到了大量的DDOS攻击、密码爆破等攻击，OpenFrp-Project成员对节点进行了维护与升级，现全面更换为公钥-私钥登录并完全离线保存。对于DDOS攻击也在积极的采取措施，若节点长期处于瘫痪状态，我们会为您更换节点来保持你的服务正常运行，对此深表抱歉，决定给予在被攻击节点在当天有流量的用户10G流量包，每账户，每人，每个设备限领一份。关于为什么不采用高防服务器的问题，OpenFrp是全免费的服务，全部节点均为各大赞助商提供。" class="headerlink" title="近期我们的节点受到了大量的DDOS攻击、密码爆破等攻击，OpenFrp Project成员对节点进行了维护与升级，现全面更换为公钥+私钥登录并完全离线保存。对于DDOS攻击也在积极的采取措施，若节点长期处于瘫痪状态，我们会为您更换节点来保持你的服务正常运行，对此深表抱歉，决定给予在被攻击节点在当天有流量的用户10G流量包，每账户，每人，每个设备限领一份。关于为什么不采用高防服务器的问题，OpenFrp是全免费的服务，全部节点均为各大赞助商提供。"></a>近期我们的节点受到了大量的DDOS攻击、密码爆破等攻击，OpenFrp Project成员对节点进行了维护与升级，现全面更换为公钥+私钥登录并完全离线保存。对于DDOS攻击也在积极的采取措施，若节点长期处于瘫痪状态，我们会为您更换节点来保持你的服务正常运行，对此深表抱歉，决定给予在被攻击节点在当天有流量的用户10G流量包，每账户，每人，每个设备限领一份。关于为什么不采用高防服务器的问题，OpenFrp是全免费的服务，全部节点均为各大赞助商提供。</h3><h3 id="OpenFrp-多个节点频繁受到攻击，OpenFrp-Project-向攻击者严厉发出以下声明："><a href="#OpenFrp-多个节点频繁受到攻击，OpenFrp-Project-向攻击者严厉发出以下声明：" class="headerlink" title="OpenFrp 多个节点频繁受到攻击，OpenFrp Project 向攻击者严厉发出以下声明："></a>OpenFrp 多个节点频繁受到攻击，OpenFrp Project 向攻击者严厉发出以下声明：</h3><p>一、 OpenFrp对此事予以高度关注，在发现此事后，我们已迅速问责相关人员，责令进行紧急处理</p><p>二、 按照《中华人民共和国刑法》第二百八十六条的相关规定，我们已保存相关证据，如后续继续发现此类行为，我们将严厉处置，即交由执法部门处理。我们目前正在内部组织相关流程对用户进行相应赔偿，具体可见OpenFrp官方网站内发布的公告。</p><p>三、目前发现攻击人员触碰以下等法条</p><ul><li><strong>《中华人民共和国著作权法》</strong> 第五十三条<br>未经著作权人或者与著作权有关的权利人许可，故意避开或者破坏技术措施的，故意制造、进口或者向他人提供主要用于避开、破坏技术措施的装置或者部件的，或者故意为他人避开或者破坏技术措施提供技术服务的，法律、行政法规另有规定的除外，应当根据情况，承担本法第五十二条规定的民事责任（应当根据情况，承担<strong>停止侵害、消除影响、赔礼道歉、赔偿损失</strong>等）；侵权行为同时损害公共利益的，由主管著作权的部门责令停止侵权行为，予以<strong>警告，没收违法所得，没收、无害化销毁处理侵权复制品以及主要用于制作侵权复制品的材料、工具、设备等</strong>，违法经营额五万元以上的，可以并<strong>处违法经营额一倍以上五倍以下的罚款</strong>；没有违法经营额、违法经营额难以计算或者不足五万元的，可以并<strong>处二十五万元以下的罚款</strong>；构成犯罪的，依法追究<strong>刑事责任</strong>。</li></ul><ul><li><p><strong>《中华人民共和国刑法》</strong> 第二百八十五条<br>  <strong>【非法侵入计算机信息系统罪】</strong> 违反国家规定，侵入国家事务、国防建设、尖端科学技术领域的计算机信息系统的，处三年以下有期徒刑或者拘役。</p><p>  <strong>【非法获取计算机信息系统数据、非法控制计算机信息系统罪】</strong> 违反国家规定，侵入前款规定以外的计算机信息系统或者采用其他技术手段，获取该计算机信息系统中存储、处理或者传输的数据，或者对该计算机信息系统实施非法控制，情节严重的，处三年以下有期徒刑或者拘役，并处或者单处罚金;情节特别严重的，处三年以上七年以下有期徒刑，并处罚金。</p><p>  <strong>【提供侵入、非法控制计算机信息系统程序、工具罪】</strong> 提供专门用于侵入、非法控制计算机信息系统的程序、工具，或者明知他人实施侵入、非法控制计算机信息系统的违法犯罪行为而为其提供程序、工具，情节严重的，依照前款的规定处罚。</p><p>  单位犯前三款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接责任人员，依照各该款的规定处罚。</p></li></ul><ul><li><p><strong>《中华人民共和国刑法》</strong> 第二百八十六条<br>  <strong>【破坏计算机信息系统罪】</strong> 违反国家规定，对计算机信息系统功能进行删除、修改、增加、干扰，造成计算机信息系统不能正常运行，后果严重的，处五年以下有期徒刑或者拘役;后果特别严重的，处五年以上有期徒刑。</p><p>  违反国家规定，对计算机信息系统中存储、处理或者传输的数据和应用程序进行删除、修改、增加的操作，后果严重的，依照前款的规定处罚。</p><p>  故意制作、传播计算机病毒等破坏性程序，影响计算机系统正常运行，后果严重的，依照第一款的规定处罚。</p><p>  单位犯前三款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接责任人员，依照第一款的规定处罚。</p></li></ul><h3 id="正如罗翔老师所说“人心隐藏着整个世界的败坏，我们每个人心中都藏着一个张三。”我们同时也在希望着，拨开迷茫的云雾，背后总有一片蓝天。"><a href="#正如罗翔老师所说“人心隐藏着整个世界的败坏，我们每个人心中都藏着一个张三。”我们同时也在希望着，拨开迷茫的云雾，背后总有一片蓝天。" class="headerlink" title="正如罗翔老师所说“人心隐藏着整个世界的败坏，我们每个人心中都藏着一个张三。”我们同时也在希望着，拨开迷茫的云雾，背后总有一片蓝天。"></a>正如罗翔老师所说“人心隐藏着整个世界的败坏，我们每个人心中都藏着一个张三。”我们同时也在希望着，拨开迷茫的云雾，背后总有一片蓝天。</h3><h3 id="如后续继续发现此类行为，我们将严厉处置，即交由执法部门处理。"><a href="#如后续继续发现此类行为，我们将严厉处置，即交由执法部门处理。" class="headerlink" title="如后续继续发现此类行为，我们将严厉处置，即交由执法部门处理。"></a>如后续继续发现此类行为，我们将严厉处置，即交由执法部门处理。</h3><p><em>Written by</em><br><em><strong>OpenFrp Project</strong></em><br><em><strong>OpenFrp 法务部</strong></em><br><em>2022年3月25日</em></p><hr><p><em>引用：</em></p><p><em><a href="https://www.gzzx.gov.cn/rdzt/kjyqgzzxzxd_1/fyygflfg/202106/P020210615548394847969.pdf">https://www.gzzx.gov.cn/rdzt/kjyqgzzxzxd_1/fyygflfg/202106/P020210615548394847969.pdf</a></em></p><p><em><a href="http://www.npc.gov.cn/npc/c30834/202011/848e73f58d4e4c5b82f69d25d46048c6.shtml">http://www.npc.gov.cn/npc/c30834/202011/848e73f58d4e4c5b82f69d25d46048c6.shtml</a></em></p><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">[官方动态]https://www.bilibili.com/read/cv15827585<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+    
+    
+    <categories>
+      
+      <category>唠唠叨叨</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>唠唠叨叨</tag>
+      
+      <tag>OpenFrp</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>C# 编译的程序属性中两个版本号的区分</title>
+    <link href="/2022/01/18/6f01c824a5d1.html"/>
+    <url>/2022/01/18/6f01c824a5d1.html</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>今天给甲方写代码的时候，发现 Visual Studio 的 项目属性 里支持图形化配置的两个版本号：</p><blockquote><p>程序集版本 和 文件版本</p></blockquote><p>它们在 <code>AssemblyInfo.cs</code>中是这么实现的：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><pre><code class="hljs C#">// 程序集的版本信息由下列四个值组成: <br>//<br>//      主版本<br>//      次版本<br>//      生成号<br>//      修订号<br>//<br>//可以指定所有这些值，也可以使用“生成号”和“修订号”的默认值<br>//通过使用 &quot;*&quot;，如下所示:<br>// [assembly: AssemblyVersion(&quot;1.0.*&quot;)]<br>[assembly: AssemblyVersion(&quot;4.2022.1.18&quot;)]<br>[assembly: AssemblyFileVersion(&quot;4.2022.1.18&quot;)]<br></code></pre></td></tr></table></figure><h2 id="提出问题"><a href="#提出问题" class="headerlink" title="提出问题"></a>提出问题</h2><p>可是在生成项目后， <code>AssemblyVersion</code> 项在 文件属性<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="在 Windows 中 右键相关文件 - 属性 - 详细信息">[1]</span></a></sup> 中 没有得到体现，反而有一个 “产品版本” 跟 “文件版本” 保持一致，因此提出了一个猜测：“产品版本” 会不会另有配置项？</p><h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><p>于是我就去查了查啊，后来发现确实有，但是 Visual Studio 中并没有对此得到良好的支持，需要手动在 <code>Properties\AssemblyInfo.cs</code> 中添加代码来实现它：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C#">[assembly: AssemblyInformationalVersion(&quot;0.1.2.0&quot;)]<br></code></pre></td></tr></table></figure><p>至此，大功告成</p><h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>善用百度铁子们！</p><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">在 Windows 中 右键相关文件 - 属性 - 详细信息<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+    
+    
+    <categories>
+      
+      <category>编程</category>
+      
+      <category>C#</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>编程</tag>
+      
+      <tag>C#</tag>
+      
+      <tag>VSTO</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>在 Hexo 中添加脚注</title>
+    <link href="/2022/01/09/a5a080c8a76f.html"/>
+    <url>/2022/01/09/a5a080c8a76f.html</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>早就想搞一个脚注的插件了，一搜，果然有大佬帮 <del>我</del> 我们开发好了！</p><p><a href="https://kchen.cc/2016/11/10/footnotes-in-hexo/">官方中文文档 KChen’s Blog &gt;&gt;</a><br><a href="https://github.com/kchen0x/hexo-reference"> Github &gt;&gt;</a></p><h1 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h1><p>您只需要安装一个插件：</p><figure class="highlight bash"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs Bash">npm install hexo-reference --save<br></code></pre></td></tr></table></figure><p>然后您就可以 <code>npx hexo new &lt;title&gt;</code> 一篇文章，体验效果啦：</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs Markdown">基本脚注<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="基本脚注文本">[1]</span></a></sup><br>这是在行内声明完毕的脚注[<span class="hljs-string">^2</span>](<span class="hljs-link">行内脚注</span>)<br>另一个脚注<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="这是一段">[3]</span></a></sup><br>还有一个<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="脚注文本与一些链接： [Markdown](https://en.wikipedia.org/wiki/Markdown)">[4]</span></a></sup><br><br>[<span class="hljs-symbol">^1</span>]: <span class="hljs-link">基本脚注文本</span><br><br>[<span class="hljs-symbol">^3</span>]: <span class="hljs-link">这是一段</span><br><br>脚注<br><br>文本<br>[<span class="hljs-string">^4</span>]: 脚注文本与一些链接： [<span class="hljs-string">Markdown</span>](<span class="hljs-link">https://en.wikipedia.org/wiki/Markdown</span>)<br></code></pre></td></tr></table></figure><p>效果如下：</p><p>基本脚注<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="基本脚注文本">[1]</span></a></sup><br>这是在行内声明完毕的脚注<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="行内脚注">[2]</span></a></sup><br>另一个脚注<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="这是一段">[3]</span></a></sup><br>还有一个<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="脚注文本与一些链接： [Markdown](https://en.wikipedia.org/wiki/Markdown)">[4]</span></a></sup></p><p>脚注</p><p>文本</p><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">基本脚注文本<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">行内脚注<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">这是一段<a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">脚注文本与一些链接： <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a><a href="#fnref:4" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术</category>
+      
+      <category>论坛</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Hexo</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>分享几个我给笛声春城写的API</title>
+    <link href="/2022/01/09/bd781dda0b8f.html"/>
+    <url>/2022/01/09/bd781dda0b8f.html</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>这些 API 都是给笛声春城用的，不作它用。如若您想调用，请先联系我一下，防止恶意调用。</p><h2 id="APIs"><a href="#APIs" class="headerlink" title="APIs"></a>APIs</h2><h3 id="一言"><a href="#一言" class="headerlink" title="一言"></a>一言</h3><h4 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h4><ul><li>URI: <code>http://tianqi.wac.ink/api/Yiyan.php</code></li><li>Return: <code>JSON</code><table><thead><tr><th align="left">Key</th><th align="left">Type</th><th align="left">Description</th></tr></thead><tbody><tr><td align="left">statu</td><td align="left">int</td><td align="left">200为访问成功（你也不会看到非200的情况）</td></tr><tr><td align="left">data</td><td align="left">dict</td><td align="left">返回数据字典</td></tr><tr><td align="left">data.massage</td><td align="left">string</td><td align="left">一言文本</td></tr></tbody></table></li></ul><h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><figure class="highlight json"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs Json">&#123;<span class="hljs-attr">&quot;statu&quot;</span>:<span class="hljs-number">200</span>,<span class="hljs-attr">&quot;data&quot;</span>:&#123;<span class="hljs-attr">&quot;message&quot;</span>:<span class="hljs-string">&quot;世界上的人都变成废柴，这个世界就没有废柴了。&quot;</span>&#125;&#125;<br></code></pre></td></tr></table></figure><h3 id="随机壁纸"><a href="#随机壁纸" class="headerlink" title="随机壁纸"></a>随机壁纸</h3><blockquote><p>特别说明：这个 API 返回的壁纸是经过我手动压缩的，可以找我要原图</p></blockquote><h4 id="Usage-1"><a href="#Usage-1" class="headerlink" title="Usage"></a>Usage</h4><ul><li>URI: <code>http://tianqi.wac.ink/api/RandomBackgroundImage.php</code></li><li>Return: <code>jpg</code></li></ul><h4 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h4><p><img src="http://tianqi.wac.ink/api/RandomBackgroundImage.php" alt="刷新网页，这应该会变得不同~"></p><h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>这几个 API 调用倒是可以，不过为了满足需求，质量确实不高，以后也可能会随时停用（因为会打算换成JavaScript，用静态的方式实现），所以如果您需要解决燃眉之急 <del>（比如敷衍甲方）</del> ，欢迎使用，如果想要制作 LTS 类应用程序，请不要使用我的 API ！</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>编程</category>
+      
+      <category>API</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>编程</tag>
+      
+      <tag>API</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>VSTO PowerPoint 对放映的控制</title>
+    <link href="/2022/01/08/bc8edce10cb6.html"/>
+    <url>/2022/01/08/bc8edce10cb6.html</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>VSTO<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="指 *Visual Studio Tools for Office*，是开发Office应用程序的一种办法。 [BaiduBaike>>](https://baike.baidu.com/item/VSTO/10021268)">[1]</span></a></sup> 在当前真的是个比较冷门的技术，网络上搜寻到的 VSTO 资源大多都是针对诸如 Excel 、 OutLook 之类， PowerPoint 在其中更是冷门，而关于 PowerPoint 的资源又基本都是修改 PowerPoint 文档内容的，针对放映的真是凤毛麟角。</p><p>所幸，针对 PowerPoint 放映的相关文献，质量还是相对比较高的，没有什么营销号的文章 <del>（估计营销号也看不起这个技术吧，呵）</del> ，所以本人能够在现在开发出自己的 VSTO 软件，并且将部分技术内容写在这里，成为本文章。</p><h2 id="一个契机"><a href="#一个契机" class="headerlink" title="一个契机"></a>一个契机</h2><p>我们学校里的鸿合一体机，显示屏是非常的 <del>垃圾</del> 不好用啊，老师上课点个课件得费大半节课（主要是我上课天天下位给老师调课件，怎么说也不太合适），于是我就突发奇想，既然我 <del>懒得下位</del> 觉得下位不合适，那么为什么不开发一个工具让它代替 <del>谋权篡位</del> 我呢？</p><h2 id="正片开始"><a href="#正片开始" class="headerlink" title="正片开始"></a>正片开始</h2><p>因为冷门的偏偏是 C# ， 而我是写 C# 的，所以本篇都是 C# ，不过微软的 API 大抵也都是互通的， Javascript 的朋友们也可以凑合看看。</p><h3 id="几个-global-变量"><a href="#几个-global-变量" class="headerlink" title="几个 global 变量"></a>几个 global 变量</h3><figure class="highlight csharp"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><pre><code class="hljs CSharp">PPT.Application pptApplication = <span class="hljs-literal">null</span>; <span class="hljs-comment">// 当前运行 PPT 的 Application</span><br>Presentation presentation; <span class="hljs-comment">// 当前打开的 PPT 文档</span><br>Slides slides; <span class="hljs-comment">// 当前打开的 PPT 文档的所有页面</span><br>Slide slide; <span class="hljs-comment">// 当前查看的页面</span><br><span class="hljs-built_in">int</span> slidesCount; <span class="hljs-comment">// 页面总数</span><br></code></pre></td></tr></table></figure><h3 id="检查是否打开-PowerPoint-文档"><a href="#检查是否打开-PowerPoint-文档" class="headerlink" title="检查是否打开 PowerPoint 文档"></a>检查是否打开 PowerPoint 文档</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs CSharp"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-built_in">bool</span> <span class="hljs-title">check</span>(<span class="hljs-params"></span>)</span><br>&#123;<br>    <span class="hljs-built_in">bool</span> result;<br>    <span class="hljs-keyword">try</span><br>    &#123;<br>        pptApplication = Marshal.GetActiveObject(<span class="hljs-string">&quot;PowerPoint.Application&quot;</span>) <span class="hljs-keyword">as</span> PPT.Application;<br>        result = <span class="hljs-literal">true</span>;<br>    &#125;<br>    catch<br>    &#123;<br>        result = <span class="hljs-literal">false</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">if</span> (pptApplication != <span class="hljs-literal">null</span>)<br>    &#123;<br>        <span class="hljs-comment">//获得演示文稿对象</span><br>        presentation = pptApplication.ActivePresentation;<br><br>        <span class="hljs-comment">// 获得幻灯片对象集合</span><br>        slides = presentation.Slides;<br><br>        <span class="hljs-comment">// 获得幻灯片的数量</span><br>        slidesCount = slides.Count;<br><br>        <span class="hljs-comment">// 获得当前选中的幻灯片</span><br>        <span class="hljs-keyword">try</span><br>        &#123;<br>            <span class="hljs-comment">// 在普通视图下这种方式可以获得当前选中的幻灯片对象</span><br>            <span class="hljs-comment">// 然而在阅读模式下，这种方式会出现异常</span><br>            slide = slides[pptApplication.ActiveWindow.Selection.SlideRange.SlideNumber];<br>        &#125;<br>        catch<br>        &#123;<br>            <span class="hljs-comment">// 在阅读模式下出现异常时，通过下面的方式来获得当前选中的幻灯片对象</span><br>            slide = pptApplication.SlideShowWindows[<span class="hljs-number">1</span>].View.Slide;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> result;<br>&#125;<br></code></pre></td></tr></table></figure><p>本方法会返回一个<code>bool</code>值，若为<code>true</code>，则代表用户打开了一个 Powerpoint 文档， 若为<code>false</code>则反之。</p><h3 id="切换到相对于当前的某一页"><a href="#切换到相对于当前的某一页" class="headerlink" title="切换到相对于当前的某一页"></a>切换到相对于当前的某一页</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs CSharp"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">slideGoTo</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> <span class="hljs-keyword">where</span> = <span class="hljs-number">0</span></span>)</span><br>&#123;<br><span class="hljs-comment">// 这里可以结合 slidesCount 来加一个 if ，判断能否 Goto 到 目标页面</span><br>    <span class="hljs-keyword">try</span><br>    &#123;<br>        slide = slides[pptApplication.ActiveWindow.Selection.SlideRange.SlideNumber + <span class="hljs-keyword">where</span>];<br>        slide.Select();<br>    &#125;<br>    catch<br>    &#123;<br>        pptApplication.SlideShowWindows[<span class="hljs-number">1</span>].View.GotoSlide(slide.SlideNumber + <span class="hljs-keyword">where</span>);<br>        slide = pptApplication.SlideShowWindows[<span class="hljs-number">1</span>].View.Slide;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><p>应用：<br><code>slideGoTo(1);</code> 表示切换到下一页<br><code>slideGoTo(-1);</code>表示切换到上一页</p><h3 id="开始-结束放映"><a href="#开始-结束放映" class="headerlink" title="开始/结束放映"></a>开始/结束放映</h3><p><code>presentation.SlideShowWindow.Activate();</code> 表示开始放映。（<strong>本方法没有经过实践，纯属个人猜测，可能是错误、不成立的</strong>）<br><code>presentation.SlideShowWindow.View.Exit();</code> 表示结束放映。</p><h3 id="指针样式"><a href="#指针样式" class="headerlink" title="指针样式"></a>指针样式</h3><p><code>presentation.SlideShowWindow.View.PointerType</code> 这是 PowerPoint 中掌管指针样式的对象。我们对其进行get/set，可以判断/设置当前指针样式。</p><p><code>PpSlideShowPointerType.ppSlideShowPointerPen</code> 这是笔的样式常量。将上面的对象赋值为这个的时候，我们在放映的幻灯片里就可以写写画画了。</p><p><code>PpSlideShowPointerType.ppSlideShowPointerArrow</code> 这是鼠标指针的样式常量。这是默认的样式常量。将上面的对象赋值为这个的时候，我们在放映的幻灯片里就可以恢复正常操作了。</p><h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>互联网之大，不是任何冷门资源都挖掘不到的。当我们仔细找找，还是能找到的。本人也是初次接触 VSTO 的开发，若有不正确之处，欢迎联系我。</p><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">指 <em>Visual Studio Tools for Office</em>，是开发Office应用程序的一种办法。 <a href="https://baike.baidu.com/item/VSTO/10021268">BaiduBaike&gt;&gt;</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+    
+    
+    <categories>
+      
+      <category>编程</category>
+      
+      <category>C#</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>编程</tag>
+      
+      <tag>C#</tag>
+      
+      <tag>VSTO</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>你好，笛声春城！</title>
+    <link href="/2022/01/08/0e5057bd2e86.html"/>
+    <url>/2022/01/08/0e5057bd2e86.html</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>大家好！我是天启，经过了一晚上的调试，我终于拥有了人生中的第一个 Blog ——<strong>笛声春城</strong>。</p><p>话说为啥要叫<code>笛声春城</code>这个名字嘞？我想把我的 Blog 打造成类似于故乡一样的很亲切的地方。如此，脑中便冒出李白先生所写之句：</p><p><strong>谁家玉笛暗飞声，散入春风满洛城。</strong></p><p>也许是一拍脑袋的决定罢，我便提取出<code>玉笛</code>与<code>春城</code>这两个具有代表性的词语，自以为是地造了一个词：<strong>笛声春城</strong>。</p><h2 id="Future"><a href="#Future" class="headerlink" title="Future"></a>Future</h2><p>平常可能发点随笔啥的，主要是把写程序时产生的拙见写在这里。</p><p>总之是个比较综合，比较乱的小 Blog ，欸嘿。</p><h2 id="At-the-End"><a href="#At-the-End" class="headerlink" title="At the End"></a>At the End</h2><p>总而言之，言而总之——希望大家多多关照，谢谢！</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>唠唠叨叨</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>唠唠叨叨</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
